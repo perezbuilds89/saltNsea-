@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thai Seafood Restaurant – Hua Hin</title>
-<meta name="description" content="Fresh Thai seafood in Hua Hin.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
@@ -13,8 +12,8 @@
   --navy:#0E2A33; --navy-2:#1D4450; --navy-3:#0A1F26; --line:#4F7884;
   --sand:#F4EDE2; --sand-2:#E3D8C6; --ink:#12262D; --muted:#4E5B5F; --body:#3A474B;
   --soft:#C9D4D6; --soft-2:#B7C4C7; --gold:#F2B84B; --accent:#B83A20; --price:#B83A20;
-  --display:'Bricolage Grotesque', system-ui, sans-serif;
-  --text:'IBM Plex Sans Thai', system-ui, sans-serif;
+  --display:'Bricolage Grotesque','IBM Plex Sans Thai',system-ui,sans-serif;
+  --text:'IBM Plex Sans Thai',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -28,8 +27,8 @@ section{padding:88px 24px}
 .eyebrow{margin:0;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:14px;color:var(--price)}
 .dark .eyebrow{color:var(--gold)}
 h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em}
-h1{font-weight:800;font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.02;letter-spacing:-.025em}
-h2{font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.05}
+h1{font-weight:800;font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.05}
+h2{font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.1}
 h3{font-weight:700}
 p{margin:0}
 .stack{display:flex;flex-direction:column;gap:16px}
@@ -104,8 +103,7 @@ footer a{color:var(--soft-2)}
 [hidden]{display:none !important}
 @media (max-width:640px){
   section{padding:64px 20px}
-  .hero-media{height:280px}
-  .about-media{height:280px}
+  .hero-media,.about-media{height:280px}
   .picker,.reserve{padding:24px}
   header{position:static}
 }
@@ -115,7 +113,95 @@ footer a{color:var(--soft-2)}
 <div id="app"></div>
 
 <script>
-// Allt innehåll hämtas från content.json – redigera den filen, inte den här.
+/* =========================================================
+   ✏️ แก้ข้อความของเว็บตรงนี้ (CONTENT)
+   - แก้เฉพาะข้อความที่อยู่ใน "..." เท่านั้น
+   - อย่าลบ " หรือ , ออก
+   ========================================================= */
+const CONTENT = {
+  site: {
+    name: "[Restaurant Name]",
+    tagline: "Thai seafood in Hua Hin",
+    accentColor: "#B83A20"
+  },
+  hero: {
+    eyebrow: "Thai seafood · Hua Hin",
+    title: "Fresh from the Gulf. Cooked the Thai way.",
+    text: "Pick your fish, crab or prawns straight from the ice, choose how you want it cooked, and eat it with the sea breeze. ปลาสด อาหารทะเลสด ทุกวัน",
+    image: "",
+    imageAlt: "Table by the sea with grilled prawns, steamed sea bass and som tam"
+  },
+  catch: {
+    eyebrow: "On ice today · วันนี้มีอะไร",
+    title: "Today’s catch, priced by weight",
+    text: "Arrives every morning from Hua Hin’s fishing pier. When it’s gone, it’s gone.",
+    items: [
+      { th: "ปลากะพง", en: "Sea bass", price: "[PRICE] / kg" },
+      { th: "กุ้งแม่น้ำ", en: "River prawns", price: "[PRICE] / kg" },
+      { th: "ปูม้า", en: "Blue crab", price: "[PRICE] / kg" },
+      { th: "ปลาหมึก", en: "Squid", price: "[PRICE] / kg" },
+      { th: "หอยแมลงภู่", en: "Mussels", price: "[PRICE] / kg" }
+    ]
+  },
+  cookingStyles: {
+    title: "How would you like it cooked?",
+    text: "Choose any fish from the ice, then pick a style. Tap one to see what it is.",
+    items: [
+      { th: "นึ่งมะนาว", en: "Steamed with lime", desc: "Steamed whole in a sharp lime, garlic and fresh chili broth. The classic for sea bass.", spice: "medium–hot" },
+      { th: "ทอดกระเทียม", en: "Fried with garlic", desc: "Deep-fried until crisp and topped with golden garlic and pepper. Great for kids and non-spicy eaters.", spice: "mild" },
+      { th: "เผาเกลือ", en: "Salt-crust grilled", desc: "Packed in salt and lemongrass and grilled over charcoal. Served with spicy seafood dipping sauce.", spice: "mild (sauce on the side)" },
+      { th: "ราดพริกสามรส", en: "Three-flavour sauce", desc: "Crispy fried fish under a sweet, sour and spicy tamarind–chili sauce.", spice: "medium" },
+      { th: "ผัดผงกะหรี่", en: "Yellow curry stir-fry", desc: "Wok-fried with egg, curry powder, celery and onion. Best with crab or prawns.", spice: "mild" }
+    ]
+  },
+  menu: {
+    eyebrow: "Signature dishes · เมนูแนะนำ",
+    title: "What people come back for",
+    fullMenuLink: "",
+    dishes: [
+      { th: "ต้มยำกุ้งแม่น้ำ", en: "Tom yum with river prawns", desc: "Hot and sour soup with lemongrass, galangal, kaffir lime and big river prawns.", price: "[PRICE]", spice: "hot", image: "" },
+      { th: "ปูผัดผงกะหรี่", en: "Blue crab in yellow curry", desc: "Whole crab wok-tossed with egg and curry powder. Messy and worth it.", price: "[PRICE]", spice: "mild", image: "" },
+      { th: "ปลากะพงนึ่งมะนาว", en: "Steamed sea bass with lime", desc: "Whole fish in a zingy lime, garlic and chili broth, served bubbling at the table.", price: "[PRICE]", spice: "medium–hot", image: "" },
+      { th: "กุ้งแม่น้ำเผา", en: "Charcoal-grilled river prawns", desc: "Split and grilled with rich head fat, with our house seafood sauce.", price: "[PRICE]", spice: "mild (sauce on the side)", image: "" },
+      { th: "ยำทะเล", en: "Spicy seafood salad", desc: "Squid, prawns and mussels tossed with lime, chili, celery and onion.", price: "[PRICE]", spice: "hot", image: "" },
+      { th: "หอยแมลงภู่อบหม้อดิน", en: "Clay-pot mussels", desc: "Mussels steamed with Thai basil and lemongrass, with a lime-chili dip.", price: "[PRICE]", spice: "mild", image: "" }
+    ]
+  },
+  about: {
+    eyebrow: "Our story",
+    title: "[A short line about who you are]",
+    paragraphs: [
+      "[Two or three sentences: who started the restaurant, since when, where the recipes come from and why the seafood is special.]",
+      "[Optional: a line about local fishermen, family recipes, or the view.]"
+    ],
+    image: "",
+    imageAlt: "The chef at the fish counter"
+  },
+  contact: {
+    title: "Come eat with us",
+    address: "[STREET ADDRESS], Hua Hin, Prachuap Khiri Khan [POSTCODE]",
+    mapsLink: "",
+    mapEmbed: "",
+    hours: "[Mon–Sun, 11:00–22:00]",
+    phone: "[PHONE]",
+    line: "[LINE ID]",
+    email: "[EMAIL]"
+  },
+  reservation: {
+    title: "Reserve a table",
+    note: "Walk-ins welcome too.",
+    thanks: "Thanks – your email app will open with the request. We’ll confirm by phone or LINE."
+  },
+  social: [
+    { label: "Facebook", url: "" },
+    { label: "Instagram", url: "" },
+    { label: "Google reviews", url: "" }
+  ]
+};
+/* ===================== จบส่วนที่แก้ได้ ===================== */
+
+
+/* ⛔ ด้านล่างนี้คือโค้ดของเว็บ ไม่ต้องแก้ */
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const isPlaceholder = (s) => !s || /^\[.*\]$/.test(String(s).trim());
 const telHref = (s) => 'tel:' + String(s).replace(/[^\d+]/g, '');
@@ -128,7 +214,6 @@ function media(src, alt, cls, light) {
 function render(c) {
   document.documentElement.style.setProperty('--accent', c.site.accentColor || '#B83A20');
   document.title = `${c.site.name} – ${c.site.tagline}`;
-  document.documentElement.lang = c.site.language || 'en';
 
   const catchCards = c.catch.items.map(i => `
     <div class="card"><span class="th">${esc(i.th)}</span><span class="name">${esc(i.en)}</span><span class="price">฿${esc(i.price)}</span></div>`).join('');
@@ -150,7 +235,7 @@ function render(c) {
   const k = c.contact;
   const mapBlock = k.mapEmbed
     ? `<div class="map"><iframe src="${esc(k.mapEmbed)}" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`
-    : `<div class="map ph"><span>Map – add "mapEmbed" in content.json</span></div>`;
+    : `<div class="map ph"><span>Map</span></div>`;
   const phoneLink = isPlaceholder(k.phone) ? esc(k.phone) : `<a href="${telHref(k.phone)}">${esc(k.phone)}</a>`;
   const emailLink = isPlaceholder(k.email) ? esc(k.email) : `<a href="mailto:${esc(k.email)}">${esc(k.email)}</a>`;
   const socials = c.social.filter(s => s.url).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join('');
@@ -255,7 +340,6 @@ function render(c) {
 
   <footer><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(c.site.name)} · ${esc(c.site.tagline)}</span><div class="socials">${socials}</div></div></footer>`;
 
-  // Tillagningsväljaren
   const styles = c.cookingStyles.items;
   const show = (n) => {
     const s = styles[n];
@@ -268,7 +352,6 @@ function render(c) {
   document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => show(+b.dataset.i)));
   show(0);
 
-  // Bokning: öppnar besökarens e-postprogram med en färdig förfrågan
   document.getElementById('rform').addEventListener('submit', (e) => {
     e.preventDefault();
     const f = new FormData(e.target);
@@ -281,14 +364,12 @@ function render(c) {
   });
 }
 
-fetch('content.json', { cache: 'no-cache' })
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(render)
-  .catch(err => {
-    document.getElementById('app').innerHTML = `<div class="error"><h2 style="font-size:24px">Kunde inte läsa content.json</h2>
-      <p>Kontrollera att content.json ligger i samma mapp som index.html och att JSON-koden är korrekt (inga saknade kommatecken eller citattecken).</p></div>`;
-    console.error(err);
-  });
+try {
+  render(CONTENT);
+} catch (err) {
+  document.getElementById('app').innerHTML = `<div class="error"><h2 style="font-size:24px">เกิดข้อผิดพลาด</h2><p>ตรวจสอบส่วน CONTENT ว่าไม่ได้ลบ " หรือ , ออกไป</p></div>`;
+  console.error(err);
+}
 </script>
 </body>
 </html>
