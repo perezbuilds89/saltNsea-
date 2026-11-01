@@ -1,0 +1,81 @@
+{
+  "site": {
+    "name": "[Restaurant Name]",
+    "tagline": "Thai seafood in Hua Hin",
+    "accentColor": "#B83A20",
+    "language": "en"
+  },
+  "hero": {
+    "eyebrow": "Thai seafood · Hua Hin",
+    "title": "Fresh from the Gulf. Cooked the Thai way.",
+    "text": "Pick your fish, crab or prawns straight from the ice, choose how you want it cooked, and eat it with the sea breeze. ปลาสด อาหารทะเลสด ทุกวัน",
+    "image": "",
+    "imageAlt": "Table by the sea with grilled prawns, steamed sea bass and som tam"
+  },
+  "catch": {
+    "eyebrow": "On ice today · วันนี้มีอะไร",
+    "title": "Today’s catch, priced by weight",
+    "text": "Arrives every morning from Hua Hin’s fishing pier. When it’s gone, it’s gone.",
+    "items": [
+      { "th": "ปลากะพง", "en": "Sea bass", "price": "[PRICE] / kg" },
+      { "th": "กุ้งแม่น้ำ", "en": "River prawns", "price": "[PRICE] / kg" },
+      { "th": "ปูม้า", "en": "Blue crab", "price": "[PRICE] / kg" },
+      { "th": "ปลาหมึก", "en": "Squid", "price": "[PRICE] / kg" },
+      { "th": "หอยแมลงภู่", "en": "Mussels", "price": "[PRICE] / kg" }
+    ]
+  },
+  "cookingStyles": {
+    "title": "How would you like it cooked?",
+    "text": "Choose any fish from the ice, then pick a style. Tap one to see what it is.",
+    "items": [
+      { "th": "นึ่งมะนาว", "en": "Steamed with lime", "desc": "Steamed whole in a sharp lime, garlic and fresh chili broth. The classic for sea bass.", "spice": "medium–hot" },
+      { "th": "ทอดกระเทียม", "en": "Fried with garlic", "desc": "Deep-fried until crisp and topped with golden garlic and pepper. Great for kids and non-spicy eaters.", "spice": "mild" },
+      { "th": "เผาเกลือ", "en": "Salt-crust grilled", "desc": "Packed in salt and lemongrass and grilled over charcoal. Served with spicy seafood dipping sauce.", "spice": "mild (sauce on the side)" },
+      { "th": "ราดพริกสามรส", "en": "Three-flavour sauce", "desc": "Crispy fried fish under a sweet, sour and spicy tamarind–chili sauce.", "spice": "medium" },
+      { "th": "ผัดผงกะหรี่", "en": "Yellow curry stir-fry", "desc": "Wok-fried with egg, curry powder, celery and onion. Best with crab or prawns.", "spice": "mild" }
+    ]
+  },
+  "menu": {
+    "eyebrow": "Signature dishes · เมนูแนะนำ",
+    "title": "What people come back for",
+    "fullMenuLink": "",
+    "dishes": [
+      { "th": "ต้มยำกุ้งแม่น้ำ", "en": "Tom yum with river prawns", "desc": "Hot and sour soup with lemongrass, galangal, kaffir lime and big river prawns.", "price": "[PRICE]", "spice": "hot", "image": "" },
+      { "th": "ปูผัดผงกะหรี่", "en": "Blue crab in yellow curry", "desc": "Whole crab wok-tossed with egg and curry powder. Messy and worth it.", "price": "[PRICE]", "spice": "mild", "image": "" },
+      { "th": "ปลากะพงนึ่งมะนาว", "en": "Steamed sea bass with lime", "desc": "Whole fish in a zingy lime, garlic and chili broth, served bubbling at the table.", "price": "[PRICE]", "spice": "medium–hot", "image": "" },
+      { "th": "กุ้งแม่น้ำเผา", "en": "Charcoal-grilled river prawns", "desc": "Split and grilled with rich head fat, with our house seafood sauce.", "price": "[PRICE]", "spice": "mild (sauce on the side)", "image": "" },
+      { "th": "ยำทะเล", "en": "Spicy seafood salad", "desc": "Squid, prawns and mussels tossed with lime, chili, celery and onion.", "price": "[PRICE]", "spice": "hot", "image": "" },
+      { "th": "หอยแมลงภู่อบหม้อดิน", "en": "Clay-pot mussels", "desc": "Mussels steamed with Thai basil and lemongrass, with a lime-chili dip.", "price": "[PRICE]", "spice": "mild", "image": "" }
+    ]
+  },
+  "about": {
+    "eyebrow": "Our story",
+    "title": "[A short line about who you are]",
+    "paragraphs": [
+      "[Two or three sentences: who started the restaurant, since when, where the recipes come from and why the seafood is special.]",
+      "[Optional: a line about local fishermen, family recipes, or the view.]"
+    ],
+    "image": "",
+    "imageAlt": "The chef at the fish counter"
+  },
+  "contact": {
+    "title": "Come eat with us",
+    "address": "[STREET ADDRESS], Hua Hin, Prachuap Khiri Khan [POSTCODE]",
+    "mapsLink": "",
+    "mapEmbed": "",
+    "hours": "[Mon–Sun, 11:00–22:00]",
+    "phone": "[PHONE]",
+    "line": "[LINE ID]",
+    "email": "[EMAIL]"
+  },
+  "reservation": {
+    "title": "Reserve a table",
+    "note": "Walk-ins welcome too.",
+    "thanks": "Thanks – your email app will open with the request. We’ll confirm by phone or LINE."
+  },
+  "social": [
+    { "label": "Facebook", "url": "" },
+    { "label": "Instagram", "url": "" },
+    { "label": "Google reviews", "url": "" }
+  ]
+}
