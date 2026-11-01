@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thai Seafood Restaurant – Hua Hin</title>
+<meta name="description" content="Fresh Thai seafood in Hua Hin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<style>
+:root{
+  --navy:#0E2A33; --navy-2:#1D4450; --navy-3:#0A1F26; --line:#4F7884;
+  --sand:#F4EDE2; --sand-2:#E3D8C6; --ink:#12262D; --muted:#4E5B5F; --body:#3A474B;
+  --soft:#C9D4D6; --soft-2:#B7C4C7; --gold:#F2B84B; --accent:#B83A20; --price:#B83A20;
+  --display:'Bricolage Grotesque', system-ui, sans-serif;
+  --text:'IBM Plex Sans Thai', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+.wrap{max-width:1200px;margin:0 auto}
+section{padding:88px 24px}
+.dark{background:var(--navy);color:var(--sand)}
+.white{background:#fff}
+.eyebrow{margin:0;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:14px;color:var(--price)}
+.dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em}
+h1{font-weight:800;font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.02;letter-spacing:-.025em}
+h2{font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.05}
+h3{font-weight:700}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.row > *{flex:1 1 420px;min-width:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font:inherit;font-weight:600}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{filter:brightness(.92)}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+.ph{border-radius:28px;background:var(--navy-2);border:2px dashed var(--line);color:var(--soft-2);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.ph.light{background:var(--sand-2);border-color:#A99A82;color:var(--muted)}
+.photo{border-radius:28px;width:100%;height:100%;object-fit:cover}
+header{background:var(--navy);color:var(--sand);position:sticky;top:0;z-index:10}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:12px;color:var(--sand);text-decoration:none;font-family:var(--display);font-weight:800;font-size:22px}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;font-size:15px}
+.links a{color:var(--sand);text-decoration:none;padding:10px 0}
+.links a.btn{padding:10px 20px;color:#fff}
+#top{padding-top:56px}
+.hero-text{display:flex;flex-direction:column;gap:22px}
+.hero-text .lead{font-size:19px;color:var(--soft);max-width:520px}
+.hero-media{height:460px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.small{font-size:15px;color:var(--soft-2)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:36px}
+.head p.sub{color:var(--muted);max-width:380px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:#fff;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:4px}
+.th{font-size:15px;color:var(--muted)}
+.name{font-family:var(--display);font-weight:700;font-size:22px}
+.price{color:var(--price);font-weight:600}
+.picker{margin-top:36px;background:var(--navy);color:var(--sand);border-radius:28px;padding:36px;display:flex;flex-wrap:wrap;gap:32px;align-items:center}
+.picker > *{flex:1 1 320px;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--sand);font:inherit;font-size:15px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:600}
+.style-box{background:var(--navy-2);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:6px}
+.style-box .th{color:var(--gold);font-size:17px}
+.style-box .name{font-size:26px}
+.dishes{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:36px 0}
+.dish{background:var(--sand);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.dish .img{height:190px;background:var(--sand-2);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:14px;text-align:center;padding:16px}
+.dish .img img{width:100%;height:190px;object-fit:cover}
+.dish .img.has{padding:0}
+.dish .body{padding:22px;display:flex;flex-direction:column;gap:6px;flex-grow:1}
+.dish .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.dish h3{font-size:21px;line-height:1.2}
+.dish .desc{color:var(--body);font-size:16px}
+.dish .spice{margin-top:auto;padding-top:8px;font-size:14px;color:var(--muted)}
+.about-media{height:400px}
+#about p{color:var(--body)}
+.visit{display:flex;flex-wrap:wrap;gap:40px}
+.visit > *{min-width:0}
+.info{flex:1 1 380px;display:flex;flex-direction:column;gap:24px}
+.info .label{color:var(--gold);font-weight:600;display:block}
+.info a{color:var(--gold)}
+.map{height:240px;border-radius:20px;overflow:hidden}
+.map iframe{width:100%;height:100%;border:0}
+.reserve{flex:1 1 440px;background:var(--sand);color:var(--ink);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.reserve h3{font-size:28px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:600;font-size:15px}
+.field input,.field select{font:inherit;padding:12px 14px;border:1.5px solid #A99A82;border-radius:12px;background:#fff;min-height:48px;width:100%}
+.fields3{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.thanks{background:#fff;border-radius:16px;padding:24px}
+.note{font-size:14px;color:var(--muted)}
+footer{background:var(--navy-3);color:var(--soft-2);padding:36px 24px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer a{color:var(--soft-2)}
+.socials{display:flex;flex-wrap:wrap;gap:20px}
+.error{max-width:640px;margin:80px auto;padding:24px;background:#fff;border-radius:16px}
+[hidden]{display:none !important}
+@media (max-width:640px){
+  section{padding:64px 20px}
+  .hero-media{height:280px}
+  .about-media{height:280px}
+  .picker,.reserve{padding:24px}
+  header{position:static}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+// Allt innehåll hämtas från content.json – redigera den filen, inte den här.
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const isPlaceholder = (s) => !s || /^\[.*\]$/.test(String(s).trim());
+const telHref = (s) => 'tel:' + String(s).replace(/[^\d+]/g, '');
+
+function media(src, alt, cls, light) {
+  if (src) return `<div class="${cls}"><img class="photo" src="${esc(src)}" alt="${esc(alt)}" loading="lazy"></div>`;
+  return `<div class="${cls} ph ${light ? 'light' : ''}"><span>Photo: ${esc(alt)}</span></div>`;
+}
+
+function render(c) {
+  document.documentElement.style.setProperty('--accent', c.site.accentColor || '#B83A20');
+  document.title = `${c.site.name} – ${c.site.tagline}`;
+  document.documentElement.lang = c.site.language || 'en';
+
+  const catchCards = c.catch.items.map(i => `
+    <div class="card"><span class="th">${esc(i.th)}</span><span class="name">${esc(i.en)}</span><span class="price">฿${esc(i.price)}</span></div>`).join('');
+
+  const chips = c.cookingStyles.items.map((s, n) => `
+    <button type="button" class="chip" data-i="${n}" aria-pressed="${n === 0}">${esc(s.en)}</button>`).join('');
+
+  const dishes = c.menu.dishes.map(d => `
+    <article class="dish">
+      <div class="img ${d.image ? 'has' : ''}">${d.image ? `<img src="${esc(d.image)}" alt="${esc(d.en)}" loading="lazy">` : `Photo: ${esc(d.en)}`}</div>
+      <div class="body">
+        <span class="th">${esc(d.th)}</span>
+        <div class="top"><h3>${esc(d.en)}</h3><span class="price">฿${esc(d.price)}</span></div>
+        <p class="desc">${esc(d.desc)}</p>
+        <span class="spice">Spice: ${esc(d.spice)}</span>
+      </div>
+    </article>`).join('');
+
+  const k = c.contact;
+  const mapBlock = k.mapEmbed
+    ? `<div class="map"><iframe src="${esc(k.mapEmbed)}" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`
+    : `<div class="map ph"><span>Map – add "mapEmbed" in content.json</span></div>`;
+  const phoneLink = isPlaceholder(k.phone) ? esc(k.phone) : `<a href="${telHref(k.phone)}">${esc(k.phone)}</a>`;
+  const emailLink = isPlaceholder(k.email) ? esc(k.email) : `<a href="mailto:${esc(k.email)}">${esc(k.email)}</a>`;
+  const socials = c.social.filter(s => s.url).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join('');
+
+  document.getElementById('app').innerHTML = `
+  <header>
+    <nav class="wrap">
+      <a class="logo" href="#top">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#F2B84B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-5 9-6 13-3l5-3-1 6 1 6-5-3c-4 3-10 2-13-3z"/><circle cx="15" cy="11" r="0.8"/></svg>
+        <span>${esc(c.site.name)}</span>
+      </a>
+      <div class="links">
+        <a href="#catch">Today’s catch</a><a href="#menu">Menu</a><a href="#about">Our story</a><a href="#visit">Find us</a>
+        <a class="btn btn-accent" href="#reserve">Reserve a table</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+  <section id="top" class="dark">
+    <div class="wrap row">
+      <div class="hero-text">
+        <p class="eyebrow">${esc(c.hero.eyebrow)}</p>
+        <h1>${esc(c.hero.title)}</h1>
+        <p class="lead">${esc(c.hero.text)}</p>
+        <div class="btns"><a class="btn btn-accent" href="#reserve">Reserve a table</a><a class="btn btn-ghost" href="#menu">See the menu</a></div>
+        <p class="small">Open ${esc(k.hours)} · ${esc(k.address)}</p>
+      </div>
+      ${media(c.hero.image, c.hero.imageAlt, 'hero-media')}
+    </div>
+  </section>
+
+  <section id="catch">
+    <div class="wrap">
+      <div class="head">
+        <div class="stack" style="gap:8px"><p class="eyebrow">${esc(c.catch.eyebrow)}</p><h2>${esc(c.catch.title)}</h2></div>
+        <p class="sub">${esc(c.catch.text)}</p>
+      </div>
+      <div class="grid">${catchCards}</div>
+      <div class="picker">
+        <div class="stack" style="gap:10px">
+          <h3 style="font-size:28px;line-height:1.15">${esc(c.cookingStyles.title)}</h3>
+          <p style="color:var(--soft)">${esc(c.cookingStyles.text)}</p>
+          <div class="chips" role="group" aria-label="Cooking styles">${chips}</div>
+        </div>
+        <div class="style-box" aria-live="polite">
+          <span class="th" id="s-th"></span><span class="name" id="s-en"></span>
+          <span style="color:var(--soft)" id="s-desc"></span>
+          <span class="small" style="margin-top:8px" id="s-spice"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="white">
+    <div class="wrap">
+      <div class="stack" style="gap:8px"><p class="eyebrow">${esc(c.menu.eyebrow)}</p><h2>${esc(c.menu.title)}</h2></div>
+      <div class="dishes">${dishes}</div>
+      ${c.menu.fullMenuLink ? `<a class="btn btn-ghost" href="${esc(c.menu.fullMenuLink)}" target="_blank" rel="noopener">Full menu</a>` : ''}
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap row">
+      ${media(c.about.image, c.about.imageAlt, 'about-media', true)}
+      <div class="stack">
+        <p class="eyebrow">${esc(c.about.eyebrow)}</p>
+        <h2>${esc(c.about.title)}</h2>
+        ${c.about.paragraphs.map(p => `<p>${esc(p)}</p>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="dark">
+    <div class="wrap visit">
+      <div class="info">
+        <h2>${esc(k.title)}</h2>
+        <div><span class="label">Address</span>${esc(k.address)}${k.mapsLink ? `<br><a href="${esc(k.mapsLink)}" target="_blank" rel="noopener">Open in Google Maps</a>` : ''}</div>
+        <div><span class="label">Opening hours</span>${esc(k.hours)}</div>
+        <div><span class="label">Contact</span>Tel: ${phoneLink} · LINE: ${esc(k.line)}<br>${emailLink}</div>
+        ${mapBlock}
+      </div>
+      <div class="reserve" id="reserve">
+        <h3>${esc(c.reservation.title)}</h3>
+        <div class="thanks" id="thanks" hidden><strong>${esc(c.reservation.thanks)}</strong></div>
+        <form id="rform" class="stack" style="gap:14px">
+          <div class="field"><label for="r-name">Name</label><input id="r-name" name="name" required autocomplete="name"></div>
+          <div class="fields3">
+            <div class="field"><label for="r-date">Date</label><input id="r-date" name="date" type="date" required></div>
+            <div class="field"><label for="r-time">Time</label><input id="r-time" name="time" type="time" required></div>
+            <div class="field"><label for="r-guests">Guests</label>
+              <select id="r-guests" name="guests">${[2,3,4,5,6,7,'8+'].map(g => `<option>${g}</option>`).join('')}</select></div>
+          </div>
+          <div class="field"><label for="r-phone">Phone or LINE ID</label><input id="r-phone" name="phone" required></div>
+          <button class="btn btn-accent" type="submit" style="font-size:17px;min-height:52px">Request reservation</button>
+          <span class="note">Prefer to call? ${phoneLink} – ${esc(c.reservation.note)}</span>
+        </form>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(c.site.name)} · ${esc(c.site.tagline)}</span><div class="socials">${socials}</div></div></footer>`;
+
+  // Tillagningsväljaren
+  const styles = c.cookingStyles.items;
+  const show = (n) => {
+    const s = styles[n];
+    document.getElementById('s-th').textContent = s.th;
+    document.getElementById('s-en').textContent = s.en;
+    document.getElementById('s-desc').textContent = s.desc;
+    document.getElementById('s-spice').textContent = 'Spice: ' + s.spice;
+    document.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.i == n));
+  };
+  document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => show(+b.dataset.i)));
+  show(0);
+
+  // Bokning: öppnar besökarens e-postprogram med en färdig förfrågan
+  document.getElementById('rform').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const body = `Reservation request\n\nName: ${f.get('name')}\nDate: ${f.get('date')}\nTime: ${f.get('time')}\nGuests: ${f.get('guests')}\nPhone / LINE: ${f.get('phone')}`;
+    if (!isPlaceholder(k.email)) {
+      location.href = `mailto:${k.email}?subject=${encodeURIComponent('Table reservation – ' + f.get('date'))}&body=${encodeURIComponent(body)}`;
+    }
+    e.target.hidden = true;
+    document.getElementById('thanks').hidden = false;
+  });
+}
+
+fetch('content.json', { cache: 'no-cache' })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(render)
+  .catch(err => {
+    document.getElementById('app').innerHTML = `<div class="error"><h2 style="font-size:24px">Kunde inte läsa content.json</h2>
+      <p>Kontrollera att content.json ligger i samma mapp som index.html och att JSON-koden är korrekt (inga saknade kommatecken eller citattecken).</p></div>`;
+    console.error(err);
+  });
+</script>
+</body>
+</html>
